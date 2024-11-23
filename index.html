@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>PayMe</title>
+    <meta name="description" content="Crypto PayMe by Soumo's Charity is a platform dedicated to accepting cryptocurrency donations for charitable causes. Securely donate in crypto to support various charitable initiatives and help make a difference today.">
+    <link rel="icon" href="https://i.ibb.co/vv0T2TB/binance-bnb-crypto-currency-themed-banner-vector-38039963.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const App = () => {
+            const [showModal, setShowModal] = React.useState(false);
+
+            const cryptocurrencies = [
+                { name: 'Tether', symbol: 'USDT (TON, TRC20, SOL, ERC20, BEP20)', iconClass: 'cryptocurrency-color--usdt' },
+                { name: 'The Open Network', symbol: 'TON (TON)', iconClass: 'simple-icons--ton' },
+                { name: 'Solana', symbol: 'SOL (SOL, BEP20)', iconClass: 'token-branded--solana' },
+                { name: 'Tron', symbol: 'TRX (TRC20, BEP20, ERC20)', iconClass: 'token-branded--tron' },
+                { name: 'USD Coin', symbol: 'USDC (SOL, ERC20, BEP20, BASE)', iconClass: 'cryptocurrency-color--usdc' },
+                { name: 'Binance Coin', symbol: 'BNB (BEP20, ERC20)', iconClass: 'cryptocurrency-color--bnb' },
+                { name: 'Bitcoin', symbol: 'BTC (BTC, BEP20, ERC20)', iconClass: 'logos--bitcoin' },
+                { name: 'Litecoin', symbol: 'LTC (LTC, BEP20)', iconClass: 'simple-icons--litecoin' },
+                { name: 'Ethereum', symbol: 'ETH (ERC20, BEP20, BASE)', iconClass: 'logos--ethereum' },
+                { name: 'Avalanche', symbol: 'AVAX (AVALANCHE, BEP20)', iconClass: 'cryptocurrency-color--avax' }
+            ];
+
+            const handleCryptoClick = () => {
+                setShowModal(true);
+            };
+
+            return (
+                <div className="p-4">
+                    <h1 className="text-xl font-bold mb-4">Crypto App</h1>
+                    <h2 className="text-gray-400 mb-4">CHOOSE CRYPTOCURRENCY</h2>
+                    <ul>
+                        {cryptocurrencies.map((crypto, index) => (
+                            <li key={index} className="flex items-center justify-between py-2 border-b border-gray-700" onClick={handleCryptoClick}>
+                                <div className="flex items-center">
+                                    {crypto.iconClass ? (
+                                        <span className={`${crypto.iconClass} mr-4`}></span>
+                                    ) : (
+                                        <img src={crypto.icon} alt={`${crypto.name} icon`} className="w-8 h-8 mr-4" />
+                                    )}
+                                    <div>
+                                        <p className="text-white">{crypto.name}</p>
+                                        <p className="text-gray-400 text-sm">{crypto.symbol}</ </p>
+                                    </div>
+                                </div>
+                                <i className="fas fa-chevron-right text-gray-400"></i>
+                            </li>
+                        ))}
+                    </ul>
+                    {showModal && (
+                        <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50">
+                            <div className="bg-gray-800 p-4 rounded-lg text-center">
+                                <p>Coming Soon !</p>
+                                <button onClick={() => setShowModal(false)} className="mt-4 bg-red-500 text-white px-4 py-2 rounded">Close</button>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+    <div class="bottom-4 text-center text-gray-400 text-sm mt-10">
+        <p>Copyright © 2024 Soumo All Rights Reserved</p>
+        <p>
+            <a href="/ice/privacy.html" class="hover:underline text-red-500">Privacy Policy</a> |
+            <a href="/ice" class="hover:underline text-red-500">Terms & Conditions</a>
+        </p>
+    </div>
+</body>
+</html>
