@@ -1,0 +1,174 @@
+<html>
+<head>
+    <title>PayMe</title>
+    <meta name="description" content="Crypto PayMe by Soumo's Charity is a platform dedicated to accepting cryptocurrency donations for charitable causes. Securely donate in crypto to support various charitable initiatives and help make a difference today.">
+    <link rel="icon" href="https://i.ibb.co/vv0T2TB/binance-bnb-crypto-currency-themed-banner-vector-38039963.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: 'Outfit', Arial, sans-serif;
+        }
+        .token-branded--solana {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none'%3E%3Cpath fill='url(%23tokenBrandedSolana0)' d='M19.125 7.447a.7.7 0 0 1-.456.18H2.644c-.569 0-.856-.65-.462-1.03l2.632-2.538a.67.67 0 0 1 .455-.188h16.088c.574 0 .855.656.456 1.038z'/%3E%3Cpath fill='url(%23tokenBrandedSolana1)' d='M19.125 19.954a.7.7 0 0 1-.456.175H2.644c-.569 0-.856-.645-.462-1.026l2.632-2.544a.66.66 0 0 1 .455-.181h16.088c.574 0 .855.65.456 1.03z'/%3E%3Cpath fill='url(%23tokenBrandedSolana2)' d='M19.125 10.303a.7.7 0 0 0-.456-.175H2.644c-.569 0-.856.645-.462 1.025l2.632 2.545a.7.7 0 0 0 .455.18h16.088c.574 0 .855-.65.456-1.03z'/%3E%3Cdefs%3E%3ClinearGradient id='tokenBrandedSolana0' x1='2.001' x2='22.51' y1='59.823' y2='59.635' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23599db0'/%3E%3Cstop offset='1' stop-color='%2347f8c3'/%3E%3C/linearGradient%3E%3ClinearGradient id='tokenBrandedSolana1' x1='2.001' x2='22.379' y1='8.853' y2='8.697' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23c44fe2'/%3E%3Cstop offset='1' stop-color='%2373b0d0'/%3E%3C/linearGradient%3E%3ClinearGradient id='tokenBrandedSolana2' x1='3.152' x2='21.225' y1='12.003' y2='12.003' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23778cbf'/%3E%3Cstop offset='1' stop-color='%235dcdc9'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/g%3E%3C/svg%3E");
+        }
+        .mdi--cross-circle-outline {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M12 20c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18C6.47 2 2 6.47 2 12s4.47 10 10 10s10-4.47 10-10S17.53 2 12 2m2.59 6L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41z'/%3E%3C/svg%3E");
+        }
+        .flowbite--file-copy-alt-solid {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='white' fill-rule='evenodd' clip-rule='evenodd'%3E%3Cpath d='M7 9v6a4 4 0 0 0 4 4h4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1z'/%3E%3Cpath d='M13 3.054V7H9.2a2 2 0 0 1 .281-.432l2.46-2.87A2 2 0 0 1 13 3.054M15 3v4a2 2 0 0 1-2 2H9v6a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        .token-branded--send {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none'%3E%3Cpath fill='url(%23tokenBrandedSend0)' d='M21.333 7.667H6V4.333h11.927c1.133 0 3.406.667 3.406 3.334M6 7.667V9.38c0 .287.167.953.833.953h11.834c1.113 0 3.333.42 3.333 2.474v4.286c0 .574-.667 2.574-3.333 2.574H5.333c-1.113 0-3.333-.56-3.333-3.3h15.833c.28 0 .834-.347.834-1.034v-.666c0-.287-.167-1-.834-1h-13.5c-.833 0-1.666-.34-1.666-1.714V7.667z'/%3E%3Cdefs%3E%3ClinearGradient id='tokenBrandedSend0' x1='12' x2='12' y1='4.333' y2='19' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23fdf6eb'/%3E%3Cstop offset='.28' stop-color='%23cfb89a'/%3E%3Cstop offset='.58' stop-color='%23846b52'/%3E%3Cstop offset='.78' stop-color='%23ad9173'/%3E%3Cstop offset='1' stop-color='%23dfccaf'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/g%3E%3C/svg%3E");
+        }
+        img {
+            user-select: none; /* Disable text/image selection */
+            pointer-events: none; /* Disable right-click/tap-hold behavior */
+            border-radius: 50%; /* Make images circular */
+            width: 40px; /* Ensure all images are the same size */
+            height: 40px; /* Ensure all images are the same size */
+        }
+        body {
+            -webkit-touch-callout: none; /* Disable iOS long press menu */
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const App = () => {
+            const [showModal, setShowModal] = React.useState(false);
+            const [showSolanaModal, setShowSolanaModal] = React.useState(false);
+
+            const cryptocurrencies = [
+                { name: 'Tether', symbol: 'USDT (TON, TRC20, SOL, ERC20, BEP20)', icon: 'https://i.ibb.co/4m4w3sB/logo.webp' },
+                { name: 'The Open Network', symbol: 'TON (TON)', icon: 'https://i.ibb.co/TtHCXrF/logo-3.webp' },
+                { name: 'Solana', symbol: 'SOL (SOL, BEP20)', icon: 'https://i.ibb.co/kHvgC2B/logo-2.webp' },
+                { name: 'Tron', symbol: 'TRX (TRC20, BEP20, ERC20)', icon: 'https://i.ibb.co/nkVp9tG/logo-4.webp' },
+                { name: 'USD Coin', symbol: 'USDC (SOL, ERC20, BEP20, BASE)', icon: 'https://placehold.co/32x32?text=USDC&bg=blue&color=white' },
+                { name: 'Binance Coin', symbol: 'BNB (BEP20, ERC20)', icon: 'https://placehold.co/32x32?text=BNB&bg=yellow&color=black' },
+                { name: 'Bitcoin', symbol: 'BTC (BTC, BEP20, ERC20)', icon: 'https://i.ibb.co/9rGRCY5/logo-10.webp' },
+                { name: 'Litecoin', symbol: 'LTC (LTC, BEP20)', icon: 'https://i.ibb.co/12m7ZZV/logo-7.webp' },
+                { name: 'Ethereum', symbol: 'ETH (ERC20, BEP20, BASE)', icon: 'https://i.ibb.co/D4Y4N6w/logo.png' },
+                { name: 'Avalanche', symbol: 'AVAX (AVALANCHE, BEP20)', icon: 'https://placehold.co/32x32?text=AVAX&bg=red&color=white' }
+            ];
+
+            const handleCryptoClick = (crypto) => {
+                if (crypto.name === 'Solana') {
+                    setShowSolanaModal(true);
+                } else {
+                    setShowModal(true);
+                    setTimeout(() => {
+                        setShowModal(false);
+                    }, 2000);
+                }
+            };
+
+            return (
+                <div className="p-4">
+                    <h1 className="text-xl font-bold mb-4">Crypto App</h1>
+                    <h2 className="text-gray-400 mb-4">CHOOSE CRYPTOCURRENCY</h2>
+                    <ul>
+                        {cryptocurrencies.map((crypto, index) => (
+                            <li key={index} className="flex items-center justify-between py-2 border-b border-gray-700" onClick={() => handleCryptoClick(crypto)}>
+                                <div className="flex items-center">
+                                    <img src={crypto.icon} alt={`${crypto.name} icon`} className="w-10 h-10 mr-4" />
+                                    <div>
+                                        <p className="text-white">{crypto.name}</p>
+                                        <p className="text-gray-400 text-sm">{crypto.symbol}</p>
+                                    </div>
+                                </div>
+                                <i className="fas fa-chevron-right text-gray-400"></i>
+                            </li>
+                        ))}
+                    </ul>
+                    {showModal && (
+                        <div id="toast-warning" className="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 fixed top-4 left-1/2 transform -translate-x-1/2" role="alert">
+                            <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg dark:bg-orange-700 dark:text-orange-200">
+                                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z"/>
+                                </svg>
+                                <span class="sr-only">Warning icon</span>
+                            </div>
+                            <div className="ms-3 text-sm font-normal">Coming Soon !</div>
+                        </div>
+                    )}
+                    {showSolanaModal && (
+                        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                            <div className="w-80 bg-gray-900 rounded-2xl p-4 text-center">
+                                <div className="flex justify-between items-center mb-4">
+                                    <div className="flex items-center">
+                                        <span className="token-branded--send mr-2"></span>
+                                        <h1 className="text-lg font-semibold">Deposit SOL</h1>
+                                    </div>
+                                    <span className="mdi--cross-circle-outline" onClick={() => setShowSolanaModal(false)}></span>
+                                </div>
+                                <div className="flex items-center justify-center mb-4">
+                                    <div className="flex items-center bg-gray-800 px-2 py-1 rounded-full">
+                                        <span className="token-branded--solana mr-2"></span>
+                                        <span>Solana</span>
+                                    </div>
+                                </div>
+                                <div className="bg-white p-4 rounded-lg mb-4">
+                                    <img src="https://i.ibb.co/RyQBKz8/IMG-20241125-225025.png" alt="QR code for SOL address" className="mx-auto"/>
+                                </div>
+                                <div className="mb-4">
+                                    <h2 className="text-lg font-semibold">Your SOL address</h2>
+                                    <p className="text-sm">Use this address only to receive or deposit SOL on the Solana network. Lost funds cannot be recovered.</p>
+                                </div>
+                                <div className="bg-gray-800 px-4 py-2 rounded-full flex items-center justify-center">
+                                    <span>6HoXp4...icB48T</span>
+                                    <span className="flowbite--file-copy-alt-solid ml-2"></span>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+    <div class="bottom-4 text-center text-gray-400 text-sm mt-10">
+        <p>Copyright © 2024 Soumo All Rights Reserved</p>
+        <p>
+            <a href="/ice/privacy.html" class="hover:underline text-red-500">Privacy Policy</a> |
+            <a href="/ice" class="hover:underline text-red-500">Terms & Conditions</a>
+        </p>
+    </div>
+    <script>
+        // Optional: Disable right-click
+        document.addEventListener("contextmenu", (e) => {
+            e.preventDefault();
+        });
+    </script>
+</body>
+  </html>
